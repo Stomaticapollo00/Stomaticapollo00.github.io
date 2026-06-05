@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Career-Goals</title>
+        <link href="media/favicon.png" type="image/png" rel="icon">
+        <link href="./style.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <header id="page-start">
+            <div class="header-content">
+                <h1>Gregory Misken-Schaffran</h1>
+                <div class="print-only">
+                        gmschaffran@hotmail.com<br>
+                        (623)-414-2359<br>
+                </div>
+                <div id="current-date"></div>
+            </div>
+        </header>
+        
+        <nav>
+            <a href="./resume.html"><strong>Resume</strong></a>
+            <a href="./cover-letter.html"><strong>Cover Letter</strong></a>
+            <a href="mailto:gmschaffran@hotmail.com"><strong>Email Me</strong></a>
+            <a href="tel:+16234142359"><strong>Call Me</strong></a>
+        </nav>
+        
+        <main>
+            <section class="video_section">
+                <div class="banner-video">
+                    <video autoplay muted loop playsinline poster="./media/banner.png" class="video">
+                        <source src="./media/mtnflyover.mp4" type="video/mp4">
+                        Browser does not support this video.
+                    </video>
+                </div>
+            </section>
+            <section>
+                <h2>Contact Me: </h2>
+                <div class="form_and_img">
+                    <form id="contact-form">
+                        <div class="form-row">
+                            <label for="first_name">First Name:</label>
+                            <input type="text" id="first_name" name="first_name" placeholder="John">
+                        </div>
+                        <div class="form-row">
+                            <label for="last_name">Last Name:</label>
+                            <input type="text" id="last_name" name="last_name" placeholder="Doe">
+                        </div>
+                        <div class="form-row">
+                            <label for="company_name">Company Name:</label>
+                            <input type="text" id="company_name" name="company_name" placeholder="ABC Company">
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="john.doe@abccompany.com">
+                        </div>
+                        <div class="form-row">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" placeholder="1-(623)-123-4567">
+                        </div>
+                        <div class="radio-row">
+                            <div class="radio-label">Best Contact Time:</div>
+                            <div class="radio-options">
+                                <label class="radio-option" for="morning">
+                                    <input type="radio" id="morning" name="best_contact" value="Morning">
+                                    A.M.
+                                </label>
+                                <label class="radio-option" for="afternoon">
+                                    <input type="radio" id="afternoon" name="best_contact" value="Afternoon">
+                                    P.M.
+                                </label>
+                                <label class="radio-option" for="anytime">
+                                    <input type="radio" id="anytime" name="best_contact" value="Anytime">
+                                    Anytime
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="contact_method">Best Contact Method:</label>
+                            <select id="contact_method" name="contact_method">
+                                <option value="">--Please Choose an Option--</option>
+                                <option value="Phone">Phone</option>
+                                <option value="Email">Email</option>
+                                <option value="Text">Text</option>
+                            </select>
+                        </div>
+                        <div class="button-row">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <div class="self_img">
+                        <img src="./media/self.jpeg" alt="Professional Headshot">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-header"><a href="#page-start"><strong>Gregory Misken-Schaffran - Career Goals</strong></a><br></div>
+            <div class="footer-flex">
+                <div class="footer-column">
+                    Contact Information:<br>
+                    Location: <a href="https://www.google.com/maps/place/Phoenix,+AZ+85043/@33.4297653,-112.2986521,11z/data=!4m6!3m5!1s0x872b15c54fd25385:0xef3a5b6c649e4f70!8m2!3d33.4304026!4d-112.2026347!16s%2Fm%2F01z65h5?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D">Phoenix, Arizona</a><br>
+                    Email: <a href="mailto:gmschaffran@hotmail.com">gmschaffran@hotmail.com</a><br>
+                    Phone: <a href="tel:+16234142359">623-414-2359</a><br>
+                </div>
+                <div class="footer-column">
+                    Pages:<br>
+                    <a href="./resume.html">Resume</a><br>
+                    <a href="./cover-letter.html">Cover Letter</a><br>
+                </div>
+            </div>
+        </footer>
+
+        <audio id="button-sound" src="./media/mysterytones.wav" preload="auto"></audio>
+
+        <script>
+            const initialSystemTime = Date.now();
+            const initialPerformanceTime = performance.now();
+
+            const localeFormatter = new Intl.DateTimeFormat(navigator.language, {
+                year:"numeric",
+                month:"short",
+                day:"2-digit",
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit",
+                hour12: true
+            });
+
+            function updateDate() {
+                const elapsed = performance.now() - initialPerformanceTime;
+                const preciseNow = new Date(initialSystemTime + elapsed);
+
+                const timeString = localeFormatter.format(preciseNow);
+
+                document.getElementById("current-date").textContent = timeString;
+            
+                requestAnimationFrame(updateDate);
+            }
+
+            const contactForm = document.getElementById("contact-form");
+            const submitButton = contactForm.querySelector("button[type='submit']");
+            const buttonSound = document.getElementById("button-sound");
+
+            contactForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(contactForm);
+
+                const contact = {
+                    first_name: formData.get("first_name"),
+                    last_name: formData.get("last_name"),
+                    company_name: formData.get("company_name"),
+                    email: formData.get("email"),
+                    phone: formData.get("phone"),
+                    contact_time: formData.get("best_contact"),
+                    contact_method: formData.get("contact_method")
+                };
+
+                const savedContacts = JSON.parse(localStorage.getItem("contacts")) || [];
+                savedContacts.push(contact);
+                localStorage.setItem("contacts", JSON.stringify(savedContacts));
+
+                buttonSound.currentTime = 0;
+                buttonSound.play();
+
+                submitButton.textContent = "Form Submitted. Thank you!"
+                submitButton.disabled = true;
+
+                contactForm.reset();
+            });
+
+            requestAnimationFrame(updateDate);
+            console.log("Loaded Resume Page.");
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Cover-Letter</title>
+        <link href="media/favicon.png" type="image/png" rel="icon">
+        <link href="./style.css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <header id="page-start">
+            <div class="header-content">
+                <h1>Gregory Misken-Schaffran</h1>
+                <div class="print-only">
+                        gmschaffran@hotmail.com<br>
+                        (623)-414-2359<br>
+                </div>
+                <div id="current-date"></div>
+            </div>
+        </header>
+        
+        <nav>
+            <a href="./resume.html"><strong>Resume</strong></a>
+            <a href="./career-goals.html"><strong>Career Goals</strong></a>
+            <a href="mailto:gmschaffran@hotmail.com"><strong>Email Me</strong></a>
+            <a href="tel:+16234142359"><strong>Call Me</strong></a>
+        </nav>
+        
+        <main>
+            <section>
+                <article>
+                    <hr>
+                    <h2>About Me</h2>
+                    <p>
+                        Hello Mr./Mrs. Hiring Manager,
+                    </p>
+                    <p>
+                        I would like to give you a bit of background on me and why I am the best candidate for your open position.
+                        I am first a father and husband, a loving provider with a knack for getting hyperfixated on my homelab.
+                        My passions include coding, 3D modeling and printing, learning new things or how things work, and helping others.
+                        I have a habit of tying my passions into my everyday life, which means I am often trying to make things easier for my coworkers by taking on a massive coding project (like when I wrote an integrated report builder), or 3D modeling and then printing car parts for my father-in-laws carmen ghia!
+                        What this means for you is, I am not shy in taking on hard projects that help meet our clients needs.
+                    </p>
+                    <p>
+                        Allow me a moment to brag about myself to tell you about my accomplishments.
+                        When I was 16, I coordinated and led my Eagle Scount project to build planter boxes for Desert Star Elementary School.
+                        Even now, over a decade later, the school uses these planter boxes to provide fresh vegtables to their salad bar for school lunches.
+                        Later in my life I worked for Desert Financial, where I took on a role as a Quality Analyst for the online sales team, a role that had never existed before.
+                        In this role, I developed the scoring metrics, created an onboarding process for and mentored new Sales Quality Analysts, organized and led metric meetings, and put my soul into fleshing out what the job role entailed.
+                        I then found short-term success getting my insurance license, where I was able to help people understand what odd terms like <em>IUL</em> or <em>Medicare Part D</em> means, until I took a risky career shift to drive a school bus.
+                        In both of these cases, I passed my licensing exams in less than half the time expected.  I was eager to learn something new and apply that knowledge to support others.
+                        During all of these accomplishments, I have worked to further my education, maintained deep friendships, and supported my family.
+                        As you can see, I am willing and capable of facing challenges and working hard to achieve anything I put my mind to.
+                    </p>
+                    <p>
+                        Now, you may ask yourself: Other than bragging and being a nerd, what makes me the best candidate for your role?
+                        I hear your concern, and would ask you: What are you looking for in your ideal candidate?
+                        If your answer is: someone who cares about our clients, someone who will look for efficiencies and make real change in our organization, someone who puts in 100% effort, or someone who is decisive and capable; then <strong>I</strong> am your candidate!
+                        If I am not your ideal candidate today, then I appreciate your time and I look forward to your next opportunity where your needs and my abilities better align.
+                        If I am your ideal candidate, however, <mark>click below to send me your details and hire me now!</mark>
+                    </p>
+                    <span class="contact-button-row">
+                        <a class="contact-button" href="./career-goals.html#contact-form">Contact Me Here</a>
+                    </span>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-header"><a href="#page-start"><strong>Gregory Misken-Schaffran - Cover Letter</strong></a><br></div>
+            <div class="footer-flex">
+                <div class="footer-column">
+                    Contact Information:<br>
+                    Location: <a href="https://www.google.com/maps/place/Phoenix,+AZ+85043/@33.4297653,-112.2986521,11z/data=!4m6!3m5!1s0x872b15c54fd25385:0xef3a5b6c649e4f70!8m2!3d33.4304026!4d-112.2026347!16s%2Fm%2F01z65h5?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D">Phoenix, Arizona</a><br>
+                    Email: <a href="mailto:gmschaffran@hotmail.com">gmschaffran@hotmail.com</a><br>
+                    Phone: <a href="tel:+16234142359">623-414-2359</a><br>
+                </div>
+                <div class="footer-column">
+                    Pages:<br>
+                    <a href="./resume.html">Resume</a><br>
+                    <a href="./career-goals.html">Career Goals</a><br>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const initialSystemTime = Date.now();
+            const initialPerformanceTime = performance.now();
+
+            const localeFormatter = new Intl.DateTimeFormat(navigator.language, {
+                year:"numeric",
+                month:"short",
+                day:"2-digit",
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit",
+                hour12: true
+            });
+
+            function updateDate() {
+                const elapsed = performance.now() - initialPerformanceTime;
+                const preciseNow = new Date(initialSystemTime + elapsed);
+
+                const timeString = localeFormatter.format(preciseNow);
+
+                document.getElementById("current-date").textContent = timeString;
+            
+                requestAnimationFrame(updateDate);
+            }
+
+            requestAnimationFrame(updateDate);
+            console.log("Loaded Resume Page.");
+        </script>
+        
+    </body>
+</html>
